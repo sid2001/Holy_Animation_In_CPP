@@ -1,6 +1,10 @@
 #ifndef PRIMITIVES_H
 #define PRIMITIVES_H
 
+#include <iostream>
+#include <cmath>
+#include <cassert>
+
 struct PointObject {
     virtual void translate_to(struct Point&) = 0;
     virtual void translate_by(struct Point&) = 0;
@@ -10,13 +14,33 @@ struct PointObject {
 template<typename T>
 struct Tuple3 {
     double x, y, z;
-    Tuple3(double x = 0, double y = 0, double z = 0);
-    T operator+(const T& t) const;
-    T operator/(const double a) const;
-    T& operator=(const T& t);
-    T operator*(double a);
-    T operator-();
-    bool operator==(T& t);
+    
+    Tuple3(double x = 0, double y = 0, double z = 0): x(x), y(y), z(z) {}
+
+    T operator+(const T& t) const {
+        return T(x + t.x, y + t.y, z + t.z);
+    }
+
+    T operator/(const double a) const {
+        return T(x / a, y / a, z / a);
+    }
+
+    T& operator=(const T& t) {
+        x = t.x; y = t.y; z = t.z;
+        return *this;
+    }
+
+    T operator*(double a) {
+        return T(x * a, y * a, z * a);
+    }
+
+    T operator-() {
+        return T(-x, -y, -z);
+    }
+    
+    bool operator==(T& t) {
+        return (x == t.x && y == t.y && z == t.z);
+    }
 };
 
 struct Vector : Tuple3<Vector> {

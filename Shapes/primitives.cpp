@@ -3,41 +3,6 @@
 #include <cassert>
 #include "primitives.h"
 
-// Tuple3 template implementations
-template<typename T>
-Tuple3<T>::Tuple3(double x, double y, double z): x(x), y(y), z(z) {}
-
-template<typename T>
-T Tuple3<T>::operator+(const T& t) const {
-    return T(x + t.x, y + t.y, z + t.z);
-}
-
-template<typename T>
-T Tuple3<T>::operator/(const double a) const {
-    return T(x / a, y / a, z / a);
-}
-
-template<typename T>
-T& Tuple3<T>::operator=(const T& t) {
-    x = t.x; y = t.y; z = t.z;
-    return *this;
-}
-
-template<typename T>
-T Tuple3<T>::operator*(double a) {
-    return T(x * a, y * a, z * a);
-}
-
-template<typename T>
-T Tuple3<T>::operator-() {
-    return T(-x, -y, -z);
-}
-
-template<typename T>
-bool Tuple3<T>::operator==(T& t) {
-    return (x == t.x && y == t.y && z == t.z);
-}
-
 // Vector implementations
 Vector::Vector(const Tuple3<Vector>& t) : Tuple3(t) {}
 
@@ -166,7 +131,3 @@ void Point::translate_by(Point& p) {
 Point Point::point_at_distance(Point& start, DirectionVector direction, double distance) {
     return Point(start + (Point)direction * distance);
 }
-
-// Explicit template instantiations
-template struct Tuple3<Vector>;
-template struct Tuple3<Point>;
