@@ -1,8 +1,8 @@
 #ifndef PLANE_H
 #define PLANE_H
 
-#include "Shapes/primitives.h"
-#include "Shapes/types.h"
+#include "primitives.h"
+#include "types.h"
 #include <vector>
 
 struct Plane {
