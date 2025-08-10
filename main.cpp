@@ -49,7 +49,7 @@ int main()
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
         std::cout << "\033[2J\033[H";
         std::cout.flush();
-        cub.rotate_around_up(0.0001);
+        cub.rotate_around_up(0.01);
     }
 
     return 0;
