@@ -1,6 +1,6 @@
 ### To run
 ```
-git clone git@github.com:sid2001/Holy_Animation_In_CPP.git
+git clone https://github.com/sid2001/Holy_Animation_In_CPP.git
 
 cd Holy_Animation_In_CPP
 
